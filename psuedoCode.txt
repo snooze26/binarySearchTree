@@ -1,0 +1,92 @@
+Create a node class 
+    constructor = > ( data )
+    properties => { data, rightKid, leftKid }
+build a tree class  
+    constructor => ( array )
+    properties => {root =  (returned value of the buildTree function) }
+
+create a function that takes an array of data and turns it into a balanced 
+binary tree full of Node objects appropitalely placed (dont forget to sort and remove
+duplicates) The function should return the level - 0 root node 
+
+buildTree(array)
+    Set the middle of the array 
+    Recursively get middle of the left and right subtree
+    Print the preorder of the tree
+
+create a function that inserst the given value 
+
+insert(value) { 
+
+}
+
+create a function that removes the given value 
+    instances that I will have to address 
+        when a node has a child or not 
+
+remove(value) { 
+
+}
+
+
+create a function that takes a value and return the node with the given value 
+if there is no value then return false 
+find(value) { 
+
+}
+
+create a function that accepst a a callback function as its parameter
+The function should traverse the tree in breadth-first level order 
+and call the callback on each node as it traverses, passing the whole node as an 
+argument. If no callback then call a throw an error reporting a callback is required 
+
+levelOrder(callBack){
+
+}
+
+create a function that takes a callback and  does the inorder depth-first order method 
+pass each node through the callback
+
+inOrder(callBack){
+    
+}
+
+create a function that takes a callback and  does the preOrder depth-first order method 
+pass each node through the callback
+
+
+preOrder(callBack){
+    
+}
+
+create a function that takes a callback and  does the postOrder depth-first order method 
+pass each node through the callback
+
+
+postOrder(callBack){
+    
+}
+
+create a function that returns the given node's height;
+
+height(node){ 
+
+}
+
+create a function that returns the given nodes' depth 
+
+depth(node) {
+
+}
+
+create a function that checks if the tree is balanced 
+
+isBalanced() {
+
+}
+
+create a function that rebalances a unblanaced tree
+
+reblanace(){
+
+}
