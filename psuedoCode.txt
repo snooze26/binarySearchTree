@@ -25,12 +25,49 @@ insert(value , currentNode = this.root) {
     return currentNode 
 }
 
-create a function that removes the given value 
-    instances that I will have to address 
-        when a node has a child or not 
 
-remove(value) { 
+create min function that returns the smallest value in the tree {
 
+min(root) { 
+    check root.left to see if it is null 
+        if null then return the root.value 
+        else return rootl.left recursively 
+}
+
+create max function that returns the largest value in the tree 
+
+max(root) 
+    check root.right to see if it is null 
+    if null then return the root.value 
+    else return the root.right recursively
+
+create a function that will delete a node in the tree 
+delete(value) { 
+    assign root to run deleteNode function recursively with (root , value) as constructors 
+
+}
+
+deleteNode(value, root){ 
+    check if the root is empty
+        if true then return root 
+    run recursively left 
+    if value < root.value 
+        root.left = this.deleteNode(root.left, value) 
+    run recursively right 
+    elif value > root.value 
+        root.right = this.deleteNode(root.right, value)
+    check for if child is 0, 1, or 2 remove and reassign if needed 
+    else 
+        if root.L and root.R are null 
+            return null
+        if root.L is null 
+            return root.R
+        if root.R is null 
+            return root.L 
+        root.value is assigned to this.min(root.R)
+        root.right = this.deleteNode(right, root.value)
+    
+    return root 
 }
 
 

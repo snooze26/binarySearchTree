@@ -34,4 +34,14 @@ export class Tree {
         // return the node 
         return currentNode;
     }
+
+    min(root) {
+        if(!root.left) return root.data;    
+        return this.min(root.left);
+    }
+
+    max(root) {
+        if(!root.right) return root.data;    
+        return this.max(root.right);
+    }
 }
