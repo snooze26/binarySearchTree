@@ -11,8 +11,9 @@ duplicates) The function should return the level - 0 root node
 
 buildTree(array)
     Set the middle of the array 
+    let root is going to be the root node of tree 
     Recursively get middle of the left and right subtree
-    Print the preorder of the tree
+    Return root 
 
 create a function that inserst the given value 
 
