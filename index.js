@@ -12,9 +12,15 @@ const node8 = new Node(8);
 const node9 = new Node(9);
 const node10 = new Node(10);
 const node11 = new Node(11);
-const nodeArray = [node0, node1, node2, node3, node4, node5, node6, node7, node8, node9, node10, node11];
+const node12 = new Node(20);
 
-let testTree = new Tree();
-testTree = testTree.buildTree(nodeArray, 0, nodeArray.length-1)
-console.log("Built Tree: " , testTree);
+const nodeArray = [node0, node1, node2, node3, node4, node5, node6, node7, node8, node9, node10];
+
+let testTree = new Tree(nodeArray)
+// console.log("Test before the run ", testTree);
+testTree.insert(node12);
+console.log("Tree after insertion " , testTree.root);
+
+// console.log("Test after the run ", testTree);
+// console.log("Built Tree: " , testTree);
 

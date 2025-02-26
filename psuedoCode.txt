@@ -15,10 +15,14 @@ buildTree(array)
     Recursively get middle of the left and right subtree
     Return root 
 
-create a function that inserst the given value 
-
-insert(value) { 
-
+create a function that inserts the given value into the array being inserted 
+insert(value , currentNode = this.root) { 
+    if root is null return a new node with the value inside of it 
+    if value is less than the root value ; run the insert method recursively for the left side of the root
+        assign currentNode.left to the insert function with the value and currentNode left as the parameters 
+    if value is more than the root value; run the insert method recursively for the right side of the root
+        assign currentNode.right to the insert function with the value and currentNode right as the parameters 
+    return currentNode 
 }
 
 create a function that removes the given value 
