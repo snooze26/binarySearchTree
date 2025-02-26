@@ -18,8 +18,8 @@ const nodeArray = [node0, node1, node2, node3, node4, node5, node6, node7, node8
 
 let testTree = new Tree(nodeArray)
 console.log(testTree);
-let min = testTree.min(testTree.root);
-console.log("MIN value", min)
+testTree.delete(4);
+console.log("TREE AFTER DELETE", testTree)
 // console.log("Test before the run ", testTree);
 // console.log("Test after the run ", testTree);
 // console.log("Built Tree: " , testTree);

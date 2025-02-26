@@ -65,7 +65,7 @@ deleteNode(value, root){
         if root.R is null 
             return root.L 
         root.value is assigned to this.min(root.R)
-        root.right = this.deleteNode(right, root.value)
+        root.right = this.deleteNode(right, root.data)
     
     return root 
 }

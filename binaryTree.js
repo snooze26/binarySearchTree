@@ -9,7 +9,7 @@ export class Tree {
     buildTree(array, start, end) { 
         if ( start > end) return null;
         let mid = Math.floor((start + end) / 2);
-        let root = array[mid];
+        let root = new Node(array[mid].data);
         root.left = this.buildTree(array, start, mid - 1);
         root.right = this.buildTree(array, mid + 1, end);
         
@@ -19,16 +19,14 @@ export class Tree {
     insert(value, currentNode = this.root) {
 
         // check if the current node is null
-        if(!currentNode) return new Node(value.data);
+        if(!currentNode) return new Node(value);
         // check if the value is already present 
-        if(value.data === currentNode.data) return currentNode;
+        if(value === currentNode.data) return currentNode;
         // recuvrsviely run insert to the left / right subTree
-        if( value.data < currentNode.data) {
-            console.log("Inserting left: " , value.data);    
+        if( value < currentNode.data) {
             currentNode.left = this.insert(value, currentNode.left);
                 
-        }else if (value.data > currentNode.data) { 
-            console.log("inserting right: " , value.data)
+        }else if (value > currentNode.data) { 
                 currentNode.right = this.insert(value, currentNode.right);
         }
         // return the node 
@@ -36,6 +34,7 @@ export class Tree {
     }
 
     min(root) {
+        console.log("ROOT INSIDE OF THE MIN", root)
         if(!root.left) return root.data;    
         return this.min(root.left);
     }
@@ -43,5 +42,32 @@ export class Tree {
     max(root) {
         if(!root.right) return root.data;    
         return this.max(root.right);
+    }
+
+    delete(value) { 
+        this.root = this.deleteNode(this.root, value);
+    }
+
+    deleteNode(root, value) {
+        if(!root) return root; 
+        
+        if(value < root.data) {
+            root.left = this.deleteNode(root.left, value);
+        }else if( value > root.data) {
+            root.right = this.deleteNode(root.right, value); 
+        }else {
+            if(!root.left && !root.right) {
+                return null
+            }
+            if(!root.left) { 
+                return root.right;
+            } else if(!root.right) {
+                return root.left;
+            }
+            root.data = this.min(root.right);
+            root.right = this.deleteNode(root.right , root.data)
+        }
+        console.log("Here is the root at the end of the deleteNode function " , root)
+        return root;
     }
 }
