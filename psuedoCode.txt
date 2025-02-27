@@ -49,7 +49,7 @@ delete(value) {
 
 deleteNode(value, root){ 
 
-    check if the root is empty
+    check if the root is empty if true return null
     
     if value is less than root.data then run the method recursiviely left with value 
     
@@ -68,7 +68,12 @@ deleteNode(value, root){
 create a function that takes a value and return the node with the given value 
 if there is no value then return false 
 find(value) { 
+    check if the value is empty if true return null
 
+    if root.data does not equal value then run delete(value)
+
+    else 
+        return root.data 
 }
 
 create a function that accepst a a callback function as its parameter
