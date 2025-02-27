@@ -6,11 +6,16 @@ export class Tree {
         this.root = this.buildTree(array, 0, array.length -1)
     }
 
-    buildTree(array, start, end) { 
+    buildTree(array, start, end) {
+        
         if ( start > end) return null;
         let mid = Math.floor((start + end) / 2);
+        // console.log("mid value*** " , mid);
         let root = new Node(array[mid].data);
+        // console.log("****before the left subtree is recurse**** ")
         root.left = this.buildTree(array, start, mid - 1);
+        // console.log("****before the right subtree is recurse**** ")
+
         root.right = this.buildTree(array, mid + 1, end);
         
         return root;
@@ -34,7 +39,6 @@ export class Tree {
     }
 
     min(root) {
-        console.log("ROOT INSIDE OF THE MIN", root)
         if(!root.left) return root.data;    
         return this.min(root.left);
     }
@@ -45,29 +49,42 @@ export class Tree {
     }
 
     delete(value) { 
-        this.root = this.deleteNode(this.root, value);
+        this.root = this.deleteNode(this.root, value.data);
     }
 
     deleteNode(root, value) {
-        if(!root) return root; 
-        
+        if(!root) return null; 
+        console.log("VALUE BEFORE" ,value )
+        console.log("ROOT DATA BEFORE****" , root.data); 
         if(value < root.data) {
+            console.log("Entering the left traversal ROOT LEFT****" , root.left)
             root.left = this.deleteNode(root.left, value);
+            console.log("left traversal is finished ROOT LEFT: ****", root.left)
         }else if( value > root.data) {
+            console.log("entering the right traversal ROOT right: ****", root.right)
             root.right = this.deleteNode(root.right, value); 
+            console.log("right traversal is finished ROOT right: ****", root.right)
+
         }else {
-            if(!root.left && !root.right) {
-                return null
-            }
             if(!root.left) { 
+                console.log("RIGHT ROOT HERE***" , root.right)
+                console.log("****End of left null run*****  ");
                 return root.right;
             } else if(!root.right) {
+                console.log("LEFT ROOT HERE ****" , root.left);
+                console.log("****End of right null run*****  ");
                 return root.left;
             }
-            root.data = this.min(root.right);
+            console.log("ROOT IF VALUE AND ROOT VALUE ARE THE SAME***" , root)
+            //replacing the deleted the node with right
+            root.data = this.min(root.right)
             root.right = this.deleteNode(root.right , root.data)
+            console.log("****End of traversal run*****  ");
+            console.log("ROOT DATA AFTER****" , root); 
         }
-        console.log("Here is the root at the end of the deleteNode function " , root)
+
+
         return root;
+        
     }
 }
