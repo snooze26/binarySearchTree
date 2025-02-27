@@ -48,24 +48,18 @@ delete(value) {
 }
 
 deleteNode(value, root){ 
+
     check if the root is empty
-        if true then return root 
-    run recursively left 
-    if value < root.value 
-        root.left = this.deleteNode(root.left, value) 
-    run recursively right 
-    elif value > root.value 
-        root.right = this.deleteNode(root.right, value)
-    check for if child is 0, 1, or 2 remove and reassign if needed 
+    
+    if value is less than root.data then run the method recursiviely left with value 
+    
+    else if value is more than root.data then run the method recrusively right with value 
+    
     else 
-        if root.L and root.R are null 
-            return null
-        if root.L is null 
-            return root.R
-        if root.R is null 
-            return root.L 
-        root.value is assigned to this.min(root.R)
-        root.right = this.deleteNode(right, root.data)
+        if root left is null then return the right sode the root 
+        else if root right is null then return the left side of the root 
+        else (AKA value and root data are equal) then root data becomes the min of root right
+        right of root becomes a recursive with root = root.right and value = root.data 
     
     return root 
 }

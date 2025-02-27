@@ -54,35 +54,20 @@ export class Tree {
 
     deleteNode(root, value) {
         if(!root) return null; 
-        console.log("VALUE BEFORE" ,value )
-        console.log("ROOT DATA BEFORE****" , root.data); 
-        if(value < root.data) {
-            console.log("Entering the left traversal ROOT LEFT****" , root.left)
-            root.left = this.deleteNode(root.left, value);
-            console.log("left traversal is finished ROOT LEFT: ****", root.left)
-        }else if( value > root.data) {
-            console.log("entering the right traversal ROOT right: ****", root.right)
-            root.right = this.deleteNode(root.right, value); 
-            console.log("right traversal is finished ROOT right: ****", root.right)
 
+        if(value < root.data) {
+            root.left = this.deleteNode(root.left, value);
+        }else if( value > root.data) {
+            root.right = this.deleteNode(root.right, value); 
         }else {
             if(!root.left) { 
-                console.log("RIGHT ROOT HERE***" , root.right)
-                console.log("****End of left null run*****  ");
                 return root.right;
             } else if(!root.right) {
-                console.log("LEFT ROOT HERE ****" , root.left);
-                console.log("****End of right null run*****  ");
                 return root.left;
             }
-            console.log("ROOT IF VALUE AND ROOT VALUE ARE THE SAME***" , root)
-            //replacing the deleted the node with right
             root.data = this.min(root.right)
             root.right = this.deleteNode(root.right , root.data)
-            console.log("****End of traversal run*****  ");
-            console.log("ROOT DATA AFTER****" , root); 
         }
-
 
         return root;
         
