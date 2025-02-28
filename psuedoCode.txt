@@ -121,8 +121,22 @@ levelOrder(root, callback=this.processInfo) {
 create a function that takes a callback and  does the inorder depth-first order method 
 pass each node through the callback
 
-inOrder(callBack){
+create a function that processInfo in a bts using the depth-first strategies 
+
+
+inOrderIter(root, callBack){
+    check if null is empty return if true 
     
+    create a stack array; set it to empty 
+    create a current node assign it to root 
+    while current or stack length is more than 0 
+        while current is true 
+            push current into the stack 
+            current becomes left node 
+        current becomes the node removed from the back of the stack 
+        call the callback with current.value 
+        change current to the right node of current 
+            
 }
 
 create a function that displays the binaray tree using the preOrder 
