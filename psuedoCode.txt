@@ -90,15 +90,15 @@ levelOrder(currentNode){
     create currentLevel and set it to 0 
     while queue is not empty 
         len is assigned to the length of q 
-        Add current node's data to its corresponding level (res[currentLevel].push(currentNode.data))       
+        Add current node's data to its corresponding level (res[currentLevel].push(root.data))       
         for when i is less than len 
-            assign currentNode to the front of queue 
-            push the node's data into a index of currentLevel inside res array
-            if the left node is not null add the left node to queue
-            if the right node is not null add the right node to queue
+            assign root to the front of queue 
+            push the root's data into a index of currentLevel inside res array
+            if the left root is not null add the left node to queue
+            if the right root is not null add the right node to queue
             Remvoe the element from the front of queue and add it to result 
         iterate currentLevel
-    Return result? 
+    Return result 
 }
 
 **** recursive version *****

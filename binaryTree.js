@@ -86,9 +86,22 @@ export class Tree {
         } 
     }
 
-    // levelOrder(root) {
-    //     const res = []; 
-    //     levelOrderRec(root, 0, res); 
-    //     return res; 
-    // }
+    levelOrder(root) {
+        const res = []; 
+        this.levelOrderRec(root, 0, res); 
+        return res; 
+    }
+
+    levelOrderRec(root, level, res) { 
+        if(!root) return null; 
+        res.push([]);
+
+        if(res.length <= level) { 
+            res.push([]);
+        }
+        
+        res[level].push(root.data); 
+        this.levelOrderRec(root.left, level + 1, res);
+        this.levelOrderRec(root.right, level + 1, res)
+    }
 }
