@@ -94,7 +94,6 @@ export class Tree {
 
     levelOrderRec(root, level, res) { 
         if(!root) return null; 
-        res.push([]);
 
         if(res.length <= level) { 
             res.push([]);
@@ -103,5 +102,9 @@ export class Tree {
         res[level].push(root.data); 
         this.levelOrderRec(root.left, level + 1, res);
         this.levelOrderRec(root.right, level + 1, res)
+    }
+
+    levelOrderIterative(root){
+        
     }
 }
