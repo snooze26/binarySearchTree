@@ -105,6 +105,26 @@ export class Tree {
     }
 
     levelOrderIterative(root){
-        
+        if(!root) return []; 
+        const q = [];
+        const res = []; 
+
+        q.push(root);
+        let level = 0; 
+
+        while(q.length > 0) { 
+            const len = q.length;
+            res.push([]);
+
+            for(let i = 0; i < len; i++) { 
+                const front = q.shift(); 
+                res[level].push(front.data); 
+
+                if(front.left) q.push(front.left);
+                if(front.right) q.push(front.right)
+            }
+        level++
+        }
+         return res;  
     }
 }

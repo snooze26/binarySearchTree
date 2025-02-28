@@ -81,8 +81,7 @@ and call the callback on each node as it traverses, passing the whole node as an
 argument. If no callback then call a throw an error reporting a callback is required 
 
 iterative version 
-levelOrder(currentNode){
-    iterative 
+levelOrder(root){
     check if root is null if true return an empty array 
     create an array : queue
     create an array : res 
@@ -90,13 +89,12 @@ levelOrder(currentNode){
     create currentLevel and set it to 0 
     while queue is not empty 
         len is assigned to the length of q 
-        Add current node's data to its corresponding level (res[currentLevel].push(root.data))       
+        push a empty array to the res array 
         for when i is less than len 
-            assign root to the front of queue 
+            create a new root for the front of queue 
             push the root's data into a index of currentLevel inside res array
             if the left root is not null add the left node to queue
             if the right root is not null add the right node to queue
-            Remvoe the element from the front of queue and add it to result 
         iterate currentLevel
     Return result 
 }
