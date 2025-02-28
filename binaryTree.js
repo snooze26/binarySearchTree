@@ -86,22 +86,24 @@ export class Tree {
         } 
     }
 
-    levelOrder(root) {
-        const res = []; 
-        this.levelOrderRec(root, 0, res); 
+    processInfo(node, level, res) {
+         if(!res[level]) res[level] =  []; 
+         res[level].push(node.data);
+    }
+    
+    levelOrder(root, callback = this.processInfo) {
+        const res = []
+        this.levelOrderRec(root, 0, callback, res); 
         return res; 
     }
 
-    levelOrderRec(root, level, res) { 
+    levelOrderRec(root, level, callback, res) { 
         if(!root) return null; 
 
-        if(res.length <= level) { 
-            res.push([]);
-        }
+        callback(root, level, res); 
         
-        res[level].push(root.data); 
-        this.levelOrderRec(root.left, level + 1, res);
-        this.levelOrderRec(root.right, level + 1, res)
+        this.levelOrderRec(root.left, level + 1, callback, res);
+        this.levelOrderRec(root.right, level + 1, callback, res)
     }
 
     levelOrderIterative(root){
@@ -127,4 +129,6 @@ export class Tree {
         }
          return res;  
     }
+
+    
 }

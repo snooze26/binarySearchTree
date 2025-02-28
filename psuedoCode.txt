@@ -73,12 +73,15 @@ find(value, currentNode = this.root) {
     if value is less than currentNode data then run find recursively on left subtree 
     else if value is more than currentNode data then run find recursevly on right subtree 
 }
-    
 
-create a function that accepst a a callback function as its parameter
-The function should traverse the tree in breadth-first level order 
-and call the callback on each node as it traverses, passing the whole node as an 
-argument. If no callback then call a throw an error reporting a callback is required 
+create a function that process and logs the node to the console 
+printInfo(node, level, res) { 
+    if level inside of res is not true return an empty array assigned to the level of res 
+    add the node data into level of the res array 
+}  
+
+create a function that returns the binaray tree in a level Order list using a callback and without a callback
+also recursively and iteratively 
 
 iterative version 
 levelOrder(root){
@@ -100,19 +103,19 @@ levelOrder(root){
 }
 
 **** recursive version *****
-levelOrderRec(root, level , res){ 
-    return if root is null 
-    Add a new level to the result if need ( if res.length <= level ) push a empty array 
-    Add current node's data to its corresponding level 
-    Run recrusively for left and right children 
-        ex. levelOrderRec(root.left, level + 1, res)    
 
+levelOrderRec(root, level , callback, res){ 
+    check if the root is null if true return null 
+    invoke the callback(root, level, res) 
+
+    recursively run the method left and right (rL , level + 1, callback, res)
+    recursively run the method right 
 }
 
-levelOrder(root) { 
-    create a res array 
-    run the levelOrder with root, 0, and res as constrcutors 
-    return res 
+levelOrder(root, callback=this.processInfo) { 
+    const res = an empty array
+    run levelORderRec with { root, 0 , callback, res, }as the constructors
+    return res
 }
 **** END OF levelOrder FUNCTION *****
 create a function that takes a callback and  does the inorder depth-first order method 
@@ -122,12 +125,9 @@ inOrder(callBack){
     
 }
 
-create a function that takes a callback and  does the preOrder depth-first order method 
-pass each node through the callback
-
-
-preOrder(callBack){
-    
+create a function that displays the binaray tree using the preOrder 
+preOrder(root){
+    check if root is null 
 }
 
 create a function that takes a callback and  does the postOrder depth-first order method 
