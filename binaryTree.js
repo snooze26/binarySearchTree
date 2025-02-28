@@ -85,4 +85,10 @@ export class Tree {
             return currentNode.right = this.find(value , currentNode.right )
         } 
     }
+
+    // levelOrder(root) {
+    //     const res = []; 
+    //     levelOrderRec(root, 0, res); 
+    //     return res; 
+    // }
 }
