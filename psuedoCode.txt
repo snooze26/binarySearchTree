@@ -84,22 +84,22 @@ create a function that returns the binaray tree in a level Order list using a ca
 also recursively and iteratively 
 
 iterative version 
-levelOrder(root){
-    check if root is null if true return an empty array 
-    create an array : queue
-    create an array : res 
-    add the root to the queue 
-    create currentLevel and set it to 0 
-    while queue is not empty 
-        len is assigned to the length of q 
-        push a empty array to the res array 
-        for when i is less than len 
-            create a new root for the front of queue 
-            push the root's data into a index of currentLevel inside res array
-            if the left root is not null add the left node to queue
-            if the right root is not null add the right node to queue
-        iterate currentLevel
-    Return result 
+levelOrderIterative(root, callback = this.processInfo){
+    check if root is null return if true 
+    create a q array with root as the index 
+    create a empty array and call it res 
+    create a level variable and assign it to 0 
+
+    while q's length is greater than 0 
+        put the length of the q into a variable called length 
+        add a level(empty array) to the queue
+            every time that i is less than length 
+                capture the front of the q in "front"
+                call the callback with front, leve, and res as the constructors 
+                if front's left node is true then push it into queue 
+                if front's right node is true then push it into the queue  
+            increment level
+        return res          
 }
 
 **** recursive version *****

@@ -87,7 +87,7 @@ export class Tree {
     }
 
     processInfo(node, level, res) {
-         if(!res[level]) res[level] =  []; 
+         if(!res[level]) res[level] = []; 
          res[level].push(node.data);
     }
     
@@ -106,29 +106,27 @@ export class Tree {
         this.levelOrderRec(root.right, level + 1, callback, res)
     }
 
-    levelOrderIterative(root){
+    levelOrderIterative(root, callback=this.processInfo){
         if(!root) return []; 
-        const q = [];
-        const res = []; 
-
-        q.push(root);
-        let level = 0; 
+        const q = [root]; 
+        const res = []
+        let level = 0;
 
         while(q.length > 0) { 
-            const len = q.length;
+            const length = q.length; 
+
             res.push([]);
 
-            for(let i = 0; i < len; i++) { 
-                const front = q.shift(); 
-                res[level].push(front.data); 
+            for(let i = 0; i < length; i++) { 
+                const front = q.shift();
+                callback(front, level, res);
 
                 if(front.left) q.push(front.left);
-                if(front.right) q.push(front.right)
+                if(front.right) q.push(front.right);
             }
-        level++
+            level++
         }
-         return res;  
+        return res;
     }
-
     
 }
