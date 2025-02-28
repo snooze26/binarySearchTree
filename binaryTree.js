@@ -68,8 +68,21 @@ export class Tree {
             root.data = this.min(root.right)
             root.right = this.deleteNode(root.right , root.data)
         }
+        return root;  
+    }
 
-        return root;
+    find(value, currentNode = this.root) {  
+        if(!currentNode) return null; 
         
+        if(value === currentNode.data){
+            console.log("HERE IS CURRENT NODE," , currentNode.data)
+            return currentNode;
+        }
+
+        if(value < currentNode.data) { 
+            return currentNode.left = this.find(value, currentNode.left);
+        } else { 
+            return currentNode.right = this.find(value , currentNode.right )
+        } 
     }
 }

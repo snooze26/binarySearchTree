@@ -69,10 +69,10 @@ create a function that takes a value and return the node with the given value
 if there is no value then return false 
 find(value, currentNode = this.root) { 
     check if the value is empty if true return null
+    if value = currentNode.data  return the currentNode 
 
     if value is less than currentNode data then run find recursively on left subtree 
     else if value is more than currentNode data then run find recursevly on right subtree 
-    else return the result of the recursive call (value, currentNode)
 }
     
 
