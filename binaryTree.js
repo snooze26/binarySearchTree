@@ -86,12 +86,13 @@ export class Tree {
         } 
     }
 
-    processInfo(node, level, res) {
+    processInfoBreadthFirst(node, level, res) {
          if(!res[level]) res[level] = []; 
          res[level].push(node.data);
     }
     
-    levelOrder(root, callback = this.processInfo) {
+    levelOrder(root, callback = this.processInfoBreadthFirst) {
+        
         const res = []
         this.levelOrderRec(root, 0, callback, res); 
         return res; 
@@ -99,6 +100,7 @@ export class Tree {
 
     levelOrderRec(root, level, callback, res) { 
         if(!root) return null; 
+        if(!callback) return console.error("invalid callback");
 
         callback(root, level, res); 
         
@@ -106,8 +108,10 @@ export class Tree {
         this.levelOrderRec(root.right, level + 1, callback, res)
     }
 
-    levelOrderIterative(root, callback=this.processInfo){
+    levelOrderIterative(root, callback=this.processInfoBreadthFirst){
         if(!root) return []; 
+        if(!callback) return console.error("invalid callback");
+        
         const q = [root]; 
         const res = []
         let level = 0;
@@ -127,6 +131,27 @@ export class Tree {
             level++
         }
         return res;
+    }
+
+    processInfoDepth(root) { 
+        if(root) console.log(root.data);
+    }
+    inOrderIterative(root, callback=this.processInfoDepth) { 
+        if(!root) return; 
+        if(!callback) return console.error("invalid callback");
+        
+        const stack = [];
+        let current = root; 
+        while(current || stack.length > 0) {
+            while(current) { 
+                stack.push(current);
+                current = current.left;
+            } 
+            current = stack.pop();
+            callback(current);
+            current = current.right; 
+        }
+        
     }
     
 }
