@@ -123,7 +123,7 @@ pass each node through the callback
 
 create a function that processInfo in a bts using the depth-first strategies 
 
-
+** inOrder functions ** 
 inOrderIter(root, callBack){
     check if null is empty return if true 
     
@@ -139,6 +139,16 @@ inOrderIter(root, callBack){
             
 }
 
+** recursive version of inOrder ** 
+inOrderRec(root, callBack) { 
+    check if the root is null if true then return 
+    run the left side of the root recursively 
+    call the callback on the root 
+    run the right side of the root recursively 
+} 
+
+
+** End of inorder functions ** 
 create a function that displays the binaray tree using the preOrder 
 preOrder(root){
     check if root is null 

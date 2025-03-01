@@ -151,7 +151,16 @@ export class Tree {
             callback(current);
             current = current.right; 
         }
-        
+    }
+    
+    inOrderRecursive(root, callback= this.processInfoDepth) { 
+        if(!root) return; 
+        if(!callback) return console.error("invalid callback");
+
+        root.left = this.inOrderRecursive(root.left , callback);
+        callback(root); 
+        root.right = this.inOrderRecursive(root.right , callback);
+
     }
     
 }
