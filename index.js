@@ -15,7 +15,7 @@ const node10 = new Node(10);
 const nodeArray = [node0, node1, node2, node3, node4, node5, node6, node7, node8, node9, node10];
 
 let testTree = new Tree(nodeArray)
-const levelOrderT = testTree.inOrderRecursive(testTree.root);
+const levelOrderT = testTree.preOrderIter(testTree.root);
 console.log(levelOrderT);
 
 

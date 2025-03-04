@@ -162,5 +162,19 @@ export class Tree {
         root.right = this.inOrderRecursive(root.right , callback);
 
     }
+
+    preOrderIter(root, callback=this.processInfoDepth) { 
+        if(!root) return
+
+        const q = [root]; 
+        
+        while(q.length > 0) { 
+            const node = q.pop(); 
+            callback(node);
+
+            if(node.right) q.push(node.right);            
+            if(node.left) q.push(node.left);            
+        }
+    }
     
 }

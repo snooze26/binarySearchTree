@@ -118,6 +118,7 @@ levelOrder(root, callback=this.processInfo) {
     return res
 }
 **** END OF levelOrder FUNCTION *****
+
 create a function that takes a callback and  does the inorder depth-first order method 
 pass each node through the callback
 
@@ -142,6 +143,7 @@ inOrderIter(root, callBack){
 ** recursive version of inOrder ** 
 inOrderRec(root, callBack) { 
     check if the root is null if true then return 
+    chekc if the callback is true
     run the left side of the root recursively 
     call the callback on the root 
     run the right side of the root recursively 
@@ -149,16 +151,58 @@ inOrderRec(root, callBack) {
 
 
 ** End of inorder functions ** 
-create a function that displays the binaray tree using the preOrder 
-preOrder(root){
-    check if root is null 
+
+
+**start of preOrder functions 
+
+create functions that displays the binaray tree using the preOrder iteratively and recursively 
+make them take in callbacks 
+
+preOrderIter(root, callback){ root , left right 
+    check if root is null if true then return 
+    check if callback is null and if true then return a error
+    create stack array Q set it to contain the root node 
+    while current is true or stack's length is greater than zero 
+        while current is true 
+            create a node variable assign it to the removal of root in stack 
+            call callback on node(aka root) 
+            if right node is true then push the right node into the stack 
+            if left node is true then push the left node into the stack 
+
 }
+
+preOrderRecurs(root, callback) { 
+    checkif the root is null then return 
+    check if the callback is true then return 
+    call the callback on the root 
+    run the rught
+}
+** end of preOrder functions ** 
+
+** start of postOrder functions 
 
 create a function that takes a callback and  does the postOrder depth-first order method 
 pass each node through the callback
 
+left -> right -> root 
+psotOrderIter(root , callback) { 
+    check if currentNode is null if true then return 
+    check if callback is null if true then return an error 
 
-postOrder(callBack){
+    create a array called stack and set it to empty 
+    create a currentNode assign it to the root
+     
+    while current or stack length is more than 0 
+        while current is true 
+            push current into the stack 
+            current becomes left node 
+        current becomes the node removed from the back the stack
+        current becomes the right node;
+        callback on currentNode.value 
+
+}
+
+postOrderRecurs(currentNode , callBack){
     
 }
 
