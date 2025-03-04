@@ -186,20 +186,21 @@ create a function that takes a callback and  does the postOrder depth-first orde
 pass each node through the callback
 
 left -> right -> root 
-psotOrderIter(root , callback) { 
-    check if currentNode is null if true then return 
-    check if callback is null if true then return an error 
+postOrderIter(root , callback) { 
+    create a array called stack1 with the root as the index 
+    create a empty array called stack2 
+    create a empty array called res 
 
-    create a array called stack and set it to empty 
-    create a currentNode assign it to the root
-     
-    while current or stack length is more than 0 
-        while current is true 
-            push current into the stack 
-            current becomes left node 
-        current becomes the node removed from the back the stack
-        current becomes the right node;
-        callback on currentNode.value 
+    while stack 1 length is greater than 0 
+    const node becomes the variable for the last value in stack1 
+    push that node into stack2 
+
+    if left node is true rthen push left node into stack1 
+    if right node is true then push the right node into the stack1 
+
+    while stack2 is greater than 0 
+        push the last value from stack2 into the result array
+    retun result 
 
 }
 

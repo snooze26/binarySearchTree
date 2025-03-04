@@ -18,7 +18,6 @@ let testTree = new Tree(nodeArray)
 const levelOrderT = testTree.postOrderIter(testTree.root);
 console.log(levelOrderT);
 
-
 // console.log("Test before the run ", testTree);
 // console.log("Test after the run ", testTree);
 // console.log("Built Tree: " , testTree);
