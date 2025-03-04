@@ -185,7 +185,30 @@ export class Tree {
         callback(root);
         root.left = this.preOrderRecurs(root.left , callback);
         root.right = this.preOrderRecurs(root.right , callback);
-   
     }
+
+    postOrderIter(root, callback= this.processInfoDepth) {
+        if(!root) return;
+        if(!callback) return console.error("invalid callback function"); 
+
+        const stack1 = [root]; 
+        const stack2 = []; 
+        const result = []; 
+
+        while(stack1.length) { 
+            const node = stack1.pop();
+            stack2.push(node); 
     
+            if(node.left) stack1.push(node.left);            
+            if(node.right) stack1.push(node.right); 
+
+        }
+        while(stack2.length) {
+            const value = stack2.pop().data
+            callback(value)
+            result.push(value);
+        }
+        return result;
+    }
+
 }
