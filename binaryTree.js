@@ -165,6 +165,7 @@ export class Tree {
 
     preOrderIter(root, callback=this.processInfoDepth) { 
         if(!root) return
+        if(!callback) return console.error("invalid callback function")
 
         const q = [root]; 
         
@@ -175,6 +176,16 @@ export class Tree {
             if(node.right) q.push(node.right);            
             if(node.left) q.push(node.left);            
         }
+    }
+
+    preOrderRecurs(root, callback= this.processInfoDepth) { 
+        if(!root) return; 
+        if(!callback) return console.error("invalid callback function");
+
+        callback(root);
+        root.left = this.preOrderRecurs(root.left , callback);
+        root.right = this.preOrderRecurs(root.right , callback);
+   
     }
     
 }
