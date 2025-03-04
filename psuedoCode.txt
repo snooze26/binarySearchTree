@@ -175,7 +175,8 @@ preOrderRecurs(root, callback) {
     checkif the root is null then return 
     check if the callback is true then return 
     call the callback on the root 
-    run the rught
+    run the left node recursively 
+    run the right node recursively 
 }
 ** end of preOrder functions ** 
 
