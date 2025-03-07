@@ -204,8 +204,12 @@ postOrderIter(root , callback) {
 
 }
 
-postOrderRecurs(currentNode , callBack){
-    
+postOrderRecurs(root , callBack){
+    check if the root is null if so then return null 
+    check if the callback is a function if so then return error 
+    run the function recursively to the left 
+    run the function recursevly to the right 
+    run the callback on the root 
 }
 
 create a function that returns the given node's height;

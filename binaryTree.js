@@ -210,4 +210,27 @@ export class Tree {
         }
         return result;
     }
+
+    postOrderRecurs(root, callback= this.processInfoDepth) { 
+        if(!root) return; 
+        if(!callback) return console.error("invalid callback function");
+
+        root.left = this.postOrderRecurs(root.left , callback);
+        root.right = this.postOrderRecurs(root.right , callback);
+        callback(root);
+    }
+
+    height(root) {
+        if (!root) return null; 
+        
+        let height = 1;
+        let node = root;
+        console.log(node.left);
+        while(node.left) {
+            console.log("Inside of the while loop")
+            height ++
+            node = node.left;
+        }
+        return height; 
+    }
 }
