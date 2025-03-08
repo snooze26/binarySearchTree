@@ -225,12 +225,29 @@ export class Tree {
         
         let height = 1;
         let node = root;
-        console.log(node.left);
+
         while(node.left) {
-            console.log("Inside of the while loop")
             height ++
             node = node.left;
         }
         return height; 
+    }
+
+    depth(value, currentNode= this.root) { 
+        if (currentNode == null) return -1;
+        let depth = -1; 
+
+        if(currentNode.data == value) return 0 
+        
+        let leftDepth = this.depth(value, currentNode.left);
+        let rightDepth  = this.depth(value, currentNode.right);
+
+        if(leftDepth >= 0) return leftDepth + 1 
+        if(rightDepth >= 0) return rightDepth + 1 
+
+        return -1
+
+
+        return depth; 
     }
 }
